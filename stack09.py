@@ -5,7 +5,6 @@ class Node:
         self.next = next
 
 
-
 class Stack:
     def __init__(self):
         self.last = None
@@ -14,8 +13,8 @@ class Stack:
     def push(self, item):
         self.last = Node(item, self.last)
         self.len += 1
-    def pop(self):
 
+    def pop(self):
         item = self.last.item
         self.last = self.last.next
         return item
