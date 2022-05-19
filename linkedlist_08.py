@@ -60,17 +60,14 @@ def isPalindrome2(head: ListNode) -> bool:
     return True
 
 
-
-
 # 8 15 reverse-linked-list
 def reverseList(head: ListNode) -> ListNode:
-
     def reverse(node: ListNode, prev: ListNode = None):
         if not node:
             print(prev.val)
             return prev
 
-        ndext, node.next = node.next, prev
+        next, node.next = node.next, prev
         return reverse(next, node)
 
     return reverse(head)
