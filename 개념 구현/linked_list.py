@@ -20,6 +20,16 @@ class LinkedList:
 
         return True
 
+    def get_node(self, index):
+        count = 0
+        node = self.head
+
+        while count < index:
+            count += 1
+            node = node.next
+
+        return node
+
     def insert_start(self, item):
         if self.is_empty():
             self.head = Node(item)
@@ -30,10 +40,7 @@ class LinkedList:
             self.head = Node(item)
             self.head.next = start
 
-    def insert_end(self, item):  # insert_start / insert_end
-        if self.is_empty():
-            self.head = Node(item)
-            return
+    def insert_end(self, item):
 
         node = self.head
 
@@ -42,7 +49,11 @@ class LinkedList:
 
         node.next = Node(item)
 
-    def delete_start(self):  # delete
+    def insert_after(self, index, item):
+
+        pass
+
+    def delete_start(self):
         if self.is_empty():
             return False
 
@@ -54,9 +65,10 @@ class LinkedList:
 
         node = self.head
 
-        while node:
+        while node.next.next:
             node = node.next
-            pass
+
+        node.next = None
 
     def print_all(self):
         if not self.head:
@@ -78,13 +90,15 @@ class LinkedList:
 
 
 
-test  = LinkedList()
-
-test.insert_start(1)
-test.insert_start(2)
-test.insert_end(3)
-test.print_all()
-test.delete_start()
-test.print_all()
-
-test.delete_end()
+# test  = LinkedList()
+#
+# test.insert_start(1)
+# test.insert_start(2)
+# test.insert_end(4)
+# test.insert_end(3)
+# test.print_all()
+# test.delete_start()
+# test.print_all()
+#
+# test.delete_end()
+# test.print_all()
