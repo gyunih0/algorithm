@@ -10,6 +10,7 @@ class Node:
 # single linkedlist
 # insert_start / insert_end / insert_after / delete_start / delete_end / delete_after
 # is_empty(?) / print_all
+# get_node
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -51,7 +52,11 @@ class LinkedList:
 
     def insert_after(self, index, item):
 
-        pass
+        new_node = Node(item)
+        node = self.get_node(index)
+
+        new_node.next = node.next
+        node.next = new_node
 
     def delete_start(self):
         if self.is_empty():
@@ -70,6 +75,11 @@ class LinkedList:
 
         node.next = None
 
+    def delete_after(self, index):
+
+        node = self.get_node(index)
+        node.next = node.next.next
+
     def print_all(self):
         if not self.head:
             return False
@@ -79,26 +89,24 @@ class LinkedList:
 
         while node:
             if not node.next:
-                result += str(node.item)
+                result += '[' + str(node.item) + ']'
             else:
-                result += (str(node.item) + '->')
+                result += ('[' + str(node.item) + ']' + '->')
             node = node.next
 
         print(result)
 
 
+test = LinkedList()
 
+test.insert_start(1)
+test.insert_start(2)
+test.insert_end(3)
+test.insert_end(4)
+test.print_all()
 
+test.insert_after(1, 0)
+test.print_all()
 
-# test  = LinkedList()
-#
-# test.insert_start(1)
-# test.insert_start(2)
-# test.insert_end(4)
-# test.insert_end(3)
-# test.print_all()
-# test.delete_start()
-# test.print_all()
-#
-# test.delete_end()
-# test.print_all()
+test.delete_after(1)
+test.print_all()

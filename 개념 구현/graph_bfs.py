@@ -1,6 +1,5 @@
 from collections import deque
 from typing import List
-## BFS
 
 graph = {
     1: [2, 3, 4],
@@ -30,21 +29,25 @@ print(bfs(1))
 
 def bfs_mine(start: int) -> List[int]:
     visited = []
-    q = deque([start])
+    q = deque([])
 
+    q.append(start)
     while q:
-        node = q.popleft()
-        visited.append(node)
-        for adj in graph[node]:
-            if adj not in visited and adj not in q:
-                q.append(adj)
+        if not graph[q[0]]:
+            visited.append(q.popleft())
+        else:
+            for adj in graph[q[0]]:
+                if adj not in visited:
+                    visited.append(q.popleft())
+                    q.append(adj)
+        print(q)
 
     return visited
 
 print(bfs_mine(1))
 
 
-def bfs_extends(start: int) -> List[int]:
+def bfs_extend(start: int) -> List[int]:
     visited = []
     q = deque([])
 
@@ -59,6 +62,6 @@ def bfs_extends(start: int) -> List[int]:
     return visited
 
 
-print(bfs_extends(1))
+print(bfs_extend(1))
 
 

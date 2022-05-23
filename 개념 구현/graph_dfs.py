@@ -1,5 +1,4 @@
 from typing import List
-from collections import deque
 
 graph = {
     1: [2, 3, 4],
@@ -39,8 +38,7 @@ def dfs_stack(start: int) -> List[int]:
     return visited
 
 
-
-def dfs_mine(start: int) -> List[int]:
+def dfs_extend(start: int) -> List[int]:
     visited = []
     stack = []
 
@@ -60,4 +58,4 @@ for i in range(1, len(graph)+1):
 
 print(dfs_recursive(1,[]))
 print(dfs_stack(1))
-print(dfs_mine(1))
+print(dfs_extend(1))
