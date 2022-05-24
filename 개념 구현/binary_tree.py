@@ -1,24 +1,26 @@
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
 def make_tree_by(lst, idx):
     parent = None
+
     if idx < len(lst):
         value = lst[idx]
-        if value == None:
+        if value is None:
             return
 
         parent = TreeNode(value)
         parent.left = make_tree_by(lst, 2 * idx + 1)
-        parent.left = make_tree_by(lst, 2 * idx + 2)
+        parent.right = make_tree_by(lst, 2 * idx + 2)
 
     return parent
-
 
 
 def test_max_depth(lst):
@@ -31,7 +33,7 @@ def test_max_depth(lst):
 
     while q:
         depth += 1
-        for _ in range(len(q)):
+        for _ in range(len(q)):  # 같은 레벨에 있는 모든 노드
             cur = q.popleft()
             if cur.left:
                 q.append(cur.left)
