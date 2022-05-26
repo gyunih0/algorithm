@@ -46,5 +46,6 @@ def insertion_sort_1(lst: List) -> List:
 
 print(insertion_sort_1(test))
 
-def insertion_sort(lst: List) -> List:
-    
+
+# def insertion_sort(lst: List) -> List:
+#
