@@ -184,8 +184,7 @@ assert merge_sort([4, 6, 2, 9, 1]) == [1, 2, 4, 6, 9]
 assert merge_sort([5, 3, 8, 4, 9, 1, 6, 2, 7]) == [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-# HeapSort
-
+# 6. HeapSort
 def heap_sort(lst):
     result = []
     heapq.heapify(lst)
