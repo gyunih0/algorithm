@@ -27,7 +27,6 @@ def solution(n, times):
             answer = mid
             right = mid - 1
 
-
     return answer
 
 n = 6
